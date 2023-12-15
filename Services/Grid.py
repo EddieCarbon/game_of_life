@@ -94,23 +94,3 @@ class Grid(metaclass=SingletonGrid):
                 print("Loaded game state shape does not match current game state shape.")
         except Exception as e:
             print(f"Error loading game state: {e}")
-
-
-class Observable:
-    def __init__(self):
-        self._observers = []
-
-    def add_observer(self, observer):
-        self._observers.append(observer)
-
-    def remove_observer(self, observer):
-        self._observers.remove(observer)
-
-    def notify_observers(self, game_state):
-        for observer in self._observers:
-            observer.update(game_state)
-
-
-class Observer:
-    def update(self, game_state):
-        pass
